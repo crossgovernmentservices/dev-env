@@ -1,0 +1,32 @@
+performance:
+  build: apps/xgs-performance-prototype
+  environment:
+    - MODE=dev
+    - SETTINGS=application.config.DockerConfig
+    - SASS_PATH=.
+    - SECRET_KEY=local-dev-not-secret
+    - SECURITY_PASSWORD_HASH=bcrypt
+    - SECURITY_POST_LOGIN_VIEW=/profile
+  ports:
+    - "8000:8000"
+  links:
+    - db
+  volumes:
+    - ./apps/xgs-performance-prototype:/usr/src/app
+
+db:
+  image: mongo
+  ports:
+    - "27017:27017"
+  restart: always
+  command: mongod --smallfiles --quiet --logpath=/dev/null
+
+web:
+  restart: always
+  build: nginx
+  ports:
+    - "80:80"
+  links:
+    - performance
+  volumes:
+    - ./nginx:/var/www
