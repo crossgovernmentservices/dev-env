@@ -33,7 +33,7 @@ Run bootstrap script to pull dependencies
     docker-compose build
     docker-compose up
 
-Then see the section below about NGINX proxy
+Then see the section below about NGINX proxy.
 
 # Adding another application to the development environment
 
@@ -61,9 +61,9 @@ To use friendly urls in your browser while running the dev-env application you c
 
 ```
 docker-machine ip dev-env
-``
+```
 
-Use IP address in your /etc/hosts file. For example:
+Use the IP address shown as a result of the above in your /etc/hosts file. For example:
 
 ```
 192.168.99.102 csdigital.local www.csdigital.local performance.csdigital.local
