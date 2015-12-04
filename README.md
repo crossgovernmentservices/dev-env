@@ -29,6 +29,13 @@ Run bootstrap script to pull dependencies
 
 ## 4. Start the apps
 
+    initialise docker machine
+    
+    ```
+    docker-machine create --driver virtualbox devenv
+    ```
+    eval "$(docker-machine env devenv)" # add this line to your ~/.bash_profile
+
     # from dev-env directory
     docker-compose build
     docker-compose up
